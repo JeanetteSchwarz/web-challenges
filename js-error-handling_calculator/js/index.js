@@ -9,14 +9,13 @@ const operations = {
   multiply: (a, b) => a * b,
   divide: (a, b) => {
     try {
-      const result = divide(a, b);
-      console.log("${a} times ${b} equals to ${result}");
+      if (b === 0) {
+        throw new Error("Cannot divide by zero!");
+      }
+      return a, b;
     } catch (error) {
-      console.log(
-        "Please pass a number rather than zero as the divisor, thanks!"
-      );
+      return (output.innerText = error);
     }
-    return a / b;
   },
 };
 
