@@ -53,4 +53,4 @@ const person = {
   firstName: "Alex",
 };
 
-const {lastName: personLastName, ...moreInformation} = 
+const { lastName: personLastName, ...moreInformation } = person;
