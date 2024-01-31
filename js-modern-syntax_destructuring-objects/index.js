@@ -10,7 +10,7 @@ const company = {
   location: "Hamburg",
 };
 
-const { course } = company;
+export const { course } = company;
 
 console.log(course);
 
@@ -25,7 +25,7 @@ console.log(course);
 
 const user = { name: "John", years: 30 };
 
-const { name, years: age, isAdmin = false } = user;
+export const { name, years: age, isAdmin = false } = user;
 
 console.log(user);
 
@@ -39,7 +39,7 @@ const dog = {
   age: 5,
 };
 
-const { name: dogName, breed: dogBreed, age: dogAge } = dog;
+export const { name: dogName, breed: dogBreed, age: dogAge } = dog;
 
 console.log(dog);
 
@@ -53,4 +53,4 @@ const person = {
   firstName: "Alex",
 };
 
-const { lastName: personLastName, ...moreInformation } = person;
+export const { lastName: personLastName, ...moreInformation } = person;
