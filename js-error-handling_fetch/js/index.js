@@ -5,15 +5,16 @@ const userElement = document.querySelector(".user");
 async function getUser(url) {
   const response = await fetch(url);
   if (!response.ok) {
+    // response.ok ist true bei Fehler 200-399, bei  > 400 = false
     console.log("Network error");
-    return null;
+    return (errorElement = `<p class="error">${error}</p>`);
   }
   try {
     const json = await response.json();
     return json.data;
   } catch (error) {
     console.log("Error parsing json.");
-    return (errorElement = `<p class="error"></p>`);
+    return (errorElement.innerHTML = `<p class="error">${error}</p>`);
   }
 }
 
