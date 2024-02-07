@@ -13,6 +13,8 @@ export default function App() {
     // get special input for fields
     setHoliday(formElements.holiday.value);
     setDate(formElements.date.value);
+
+    // objects.fromEntries(formdata)
   }
 
   return (

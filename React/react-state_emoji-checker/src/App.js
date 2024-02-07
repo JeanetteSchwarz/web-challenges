@@ -4,23 +4,22 @@ import { useState } from "react";
 
 export default function App() {
   //let code = "?";
-  const [code, setCode] = useState("?");
+  const [code, setCode] = useState("");
 
   const validCode = "🐡🐠🐋";
 
-  function handleClick() {
+  function handleClick(event) {
     setCode(code + event.target.textContent);
   }
-
+  console.log(code);
   return (
     <div className="container">
       <div className="button-container">
         <button
           type="button"
-          onClick={() => {
-            handleClick();
+          onClick={(event) => {
+            handleClick(event);
             console.log("Update Code!");
-            console.log(code);
           }}
         >
           <span role="img" aria-label="Pufferfish">
@@ -29,10 +28,9 @@ export default function App() {
         </button>
         <button
           type="button"
-          onClick={() => {
-            handleClick();
+          onClick={(event) => {
+            handleClick(event);
             console.log("Update Code!");
-            console.log(code);
           }}
         >
           <span role="img" aria-label="Whale">
@@ -41,10 +39,9 @@ export default function App() {
         </button>
         <button
           type="button"
-          onClick={() => {
-            handleClick();
+          onClick={(event) => {
+            handleClick(event);
             console.log("Update Code!");
-            console.log(code);
           }}
         >
           <span role="img" aria-label="Clownfish">
@@ -56,7 +53,7 @@ export default function App() {
       <button
         type="button"
         onClick={() => {
-          setCode("?");
+          setCode("");
           console.log("Reset Code!");
         }}
       >
