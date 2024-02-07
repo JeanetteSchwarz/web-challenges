@@ -40,6 +40,8 @@ export default function PokemonList() {
         type="button"
         onClick={() => {
           setpokemonId((pokemonId) => pokemonId + 1);
+          // hier wird nicht eine Seite neu geladen, sondern nur ein item.
+          // für eine neue Seite müsste es +-20 sein
         }}
       >
         Next Page
