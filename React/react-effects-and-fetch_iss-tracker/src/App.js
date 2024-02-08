@@ -9,29 +9,28 @@ export default function App() {
   const [coords, setCoords] = useState({
     longitude: 0,
     latitude: 0,
-    id: 0,
   });
-  const [interval, setInterval] = useState();
 
   async function getISSCoords() {
-    const response = await fetch(
-      "https://api.wheretheiss.at/v1/satellites/25544"
-    );
-    const coords = await response.json();
-    console.log(coords);
+    try {
+      const response = await fetch(
+        "https://api.wheretheiss.at/v1/satellites/25544"
+      );
+      const coords = await response.json();
+      console.log(coords);
 
-    setCoords(coords);
+      setCoords({ longitude: coords.longitude, latitude: coords.latitude });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   // setInterval to refresh automatically every five seconds
 
   useEffect(() => {
-    //const intervalID = coords.id;
-    setInterval(getISSCoords, 5000);
+    const interval = setInterval(getISSCoords, 5000);
 
-    /* return () => {
-      clearInterval(interval);
-    }; */
+    return () => clearInterval(interval);
   }, []);
 
   return (
