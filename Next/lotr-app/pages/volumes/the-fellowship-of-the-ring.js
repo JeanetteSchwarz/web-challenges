@@ -11,7 +11,7 @@ export default function Fellowship() {
       <h1>{fellowship.title}</h1>
       <p>{fellowship.description}</p>
       <Image
-        src="/public/the-fellowship-of-the-ring.png"
+        src="/images/the-fellowship-of-the-ring.png"
         height={140}
         width={230}
         alt="Fellowship of the Ring - Cover"
