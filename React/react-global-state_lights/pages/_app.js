@@ -56,15 +56,37 @@ export default function App({ Component, pageProps }) {
     );
   }
 
+  function handleAllLightsOn() {
+    setLights(lights.map((light) => ({ ...light, isOn: true })));
+  }
+
+  function handleAllLightsOff() {
+    setLights(lights.map((light) => ({ ...light, isOn: false })));
+  }
+
+  const lightCount = lights.map((light) => {
+    if (light.isOn === true) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+  const lightSum = lightCount.reduce((a, b) => a + b);
+
   return (
     <Layout>
       <GlobalStyle />
       <Component
         {...pageProps}
         lights={lights}
-        //handleToggle={handleToggle}
         onToggle={handleToggle}
+        lightSum={lightSum}
+        onAllLightsOn={handleAllLightsOn}
+        onAllLightsOff={handleAllLightsOff}
       />
     </Layout>
   );
 }
+
+// const animalCounts = animals.map((animal) => animal.count);
+//   const countSum = animalCounts.reduce((a, b) => a + b);
