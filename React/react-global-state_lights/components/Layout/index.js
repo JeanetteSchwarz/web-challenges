@@ -36,5 +36,3 @@ export default function Layout({ children, isDimmed, lightSum }) {
     </StyledLayout>
   );
 }
-//
-//isDimmed={lightSum === 0 ? true : false}
