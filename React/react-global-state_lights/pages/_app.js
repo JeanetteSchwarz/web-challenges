@@ -74,7 +74,7 @@ export default function App({ Component, pageProps }) {
   const lightSum = lightCount.reduce((a, b) => a + b);
 
   return (
-    <Layout>
+    <Layout lightSum={lightSum}>
       <GlobalStyle />
       <Component
         {...pageProps}

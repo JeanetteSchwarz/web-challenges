@@ -1,7 +1,7 @@
 import Link from "../components/Link";
 import QuickActions from "../components/QuickActions";
 
-export default function Actions({ onAllLightsOn, onAllLightsOff }) {
+export default function Actions({ onAllLightsOn, onAllLightsOff, lightSum }) {
   return (
     <>
       <Link href="/">← Back home</Link>
@@ -9,6 +9,7 @@ export default function Actions({ onAllLightsOn, onAllLightsOff }) {
       <QuickActions
         onAllLightsOn={onAllLightsOn}
         onAllLightsOff={onAllLightsOff}
+        lightSum={lightSum}
       />
     </>
   );

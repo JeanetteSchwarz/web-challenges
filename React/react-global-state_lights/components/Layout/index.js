@@ -10,8 +10,8 @@ const Background = styled.div`
   inset: 0;
   background-color: black;
   z-index: -1;
-  filter: ${({ $isDimmed }) => ($isDimmed ? "brightness(70%)" : "none")};
   transition: filter 1.2s;
+  filter: ${({ $isDimmed }) => ($isDimmed ? "brightness(70%)" : "none")};
 `;
 
 const StyledImage = styled(Image)`
@@ -26,13 +26,15 @@ const Content = styled.div`
   padding: 32px 0;
 `;
 
-export default function Layout({ children, isDimmed }) {
+export default function Layout({ children, isDimmed, lightSum }) {
   return (
     <StyledLayout>
-      <Background $isDimmed={isDimmed}>
+      <Background $isDimmed={lightSum === 0 ? true : false}>
         <StyledImage src="/images/home.jpg" fill alt="" />
       </Background>
       <Content>{children}</Content>
     </StyledLayout>
   );
 }
+//
+//isDimmed={lightSum === 0 ? true : false}
