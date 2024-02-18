@@ -5,9 +5,12 @@ import { useRouter } from "next/router";
 
 export default function VolumeDetail() {
   const router = useRouter();
-  const { slug } = router.query;
 
-  const volumeIndex = volumes.findIndex((book) => book.slug === slug);
+  //const volumeIndex = volumes.findIndex((book) => book.slug === slug);
+
+  const volumeIndex = volumes.findIndex(
+    ({ slug }) => slug === router.query.slug
+  );
 
   const volume = volumes[volumeIndex];
   const nextVolume = volumes[volumeIndex + 1];

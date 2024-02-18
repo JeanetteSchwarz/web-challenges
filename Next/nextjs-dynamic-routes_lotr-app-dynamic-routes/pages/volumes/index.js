@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { introduction } from "../../lib/data";
+import { useRouter } from "next/router";
 
 export default function Volumes() {
+  const router = useRouter();
   return (
     <>
       <h1>The Lord of the Rings</h1>
