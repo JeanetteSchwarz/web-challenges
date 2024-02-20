@@ -15,14 +15,9 @@ export default function Fetching() {
         <li key={product.id}>
           <br></br>
           {product.name} <br></br>
-          {product.description}
-          <br></br>
-          {product.price}
-          {product.currency}
+          <Link href={`/products/${product.id}`}>{product.name}</Link>
         </li>
       ))}
     </>
   );
 }
-
-//<Link href={`/products/${product.id}`}>{product.name}</Link>
