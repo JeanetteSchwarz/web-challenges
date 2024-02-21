@@ -7,22 +7,28 @@ export default function SingleFetching() {
   const router = useRouter();
   const { id } = router.query;
 
-  const { data } = useSWR(`/api/products/${id}`, fetcher);
+  const { data, isLoading, error } = useSWR(`/api/products/${id}`, fetcher);
   console.log(data);
+
+  if (isLoading) {
+    return "is Loading";
+  }
+
+  if (error || data === undefined) {
+    return "error";
+  }
+
+  const { name, description, price, currency, category } = data;
 
   return (
     <>
       <h1>Fish Details</h1>
-      {data.map((product) => (
-        <p key={product.id}>
-          <br></br>
-          {product.name} <br></br>
-          {product.description}
-          <br></br>
-          {product.price}
-          {product.currency}
-        </p>
-      ))}
+      <br></br>
+      {name} <br></br>
+      {description}
+      <br></br>
+      {price}
+      {currency}
     </>
   );
 }

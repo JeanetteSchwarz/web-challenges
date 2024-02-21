@@ -4,8 +4,19 @@ import Link from "next/link";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function Fetching() {
-  const { data } = useSWR(`/api/products`, fetcher);
+  const { data, isLoading, error } = useSWR(`/api/products`, fetcher);
   console.log(data);
+
+  if (isLoading) {
+    return "is Loading";
+  }
+
+  if (error || data === undefined) {
+    return "error";
+  }
+  if (!data) {
+    return;
+  }
 
   return (
     <>

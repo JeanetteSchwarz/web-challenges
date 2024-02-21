@@ -3,20 +3,30 @@ import useSWR from "swr";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function HomePage() {
-  const { data } = useSWR(`/api/random-character`, fetcher);
+  const { data, isLoading, error } = useSWR(`/api/random-character`, fetcher);
   console.log(data);
+
+  if (isLoading) {
+    return "is Loading";
+  }
+
+  if (error || data === undefined) {
+    return "error";
+  }
+
+  const { firstName, lastName, twitterName, geohash } = data;
 
   return (
     <>
       <h1>Hello from the other side...</h1>
       <div>
-        {data.firstName}
+        {firstName}
         <br></br>
-        {data.lastName}
+        {lastName}
         <br></br>
-        {data.twitterName}
+        {twitterName}
         <br></br>
-        {data.geohash}
+        {geohash}
       </div>
     </>
   );
