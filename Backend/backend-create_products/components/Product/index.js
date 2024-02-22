@@ -1,8 +1,8 @@
 import useSWR from "swr";
 import { useRouter } from "next/router";
 import { ProductCard } from "./Product.styled";
+import Comments from "../Comments";
 import { StyledLink } from "../Link/Link.styled";
-import Review from "@/db/models/reviews";
 
 export default function Product() {
   const router = useRouter();
@@ -25,27 +25,8 @@ export default function Product() {
       <p>
         Price: {data.price} {data.currency}
       </p>
-      <p>{checkReview()}</p>
+      {data.reviews.length > 0 && <Comments reviews={data.reviews} />}
       <StyledLink href="/">Back to all</StyledLink>
     </ProductCard>
   );
-}
-
-/* {data.reviews.length > 0 ? (
-{data.reviews.map((review) => (
-  <li key={review._id.$oid}>
-    <h4>{review.title}</h4>
-    <p>{review.text}</p>
-    <p>Rating: {review.rating}</p>9)} */
-
-{
-  /* 
-/function checkReview() {
-//   if (data.populated("reviews")) {
-//     return Review;
-//   } else {
-//     return "none";
-//   }
-// 
- */
 }
