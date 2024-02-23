@@ -30,22 +30,3 @@ export default function Product() {
     </ProductCard>
   );
 }
-
-/* {data.reviews.length > 0 ? (
-{data.reviews.map((review) => (
-  <li key={review._id.$oid}>
-    <h4>{review.title}</h4>
-    <p>{review.text}</p>
-    <p>Rating: {review.rating}</p>9)} */
-
-{
-  /* 
-/function checkReview() {
-//   if (data.populated("reviews")) {
-//     return Review;
-//   } else {
-//     return "none";
-//   }
-// 
- */
-}
