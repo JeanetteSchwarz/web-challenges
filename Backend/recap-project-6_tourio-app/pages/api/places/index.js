@@ -9,5 +9,14 @@ export default async function handler(request, response) {
     response.status(200).json(sights);
   }
 
-  return;
+  if (request.method === "POST") {
+    try {
+      const sightsdata = request.body;
+      await Sights.create(sightsdata);
+      return response.status(201).json({ status: "Place created" });
+    } catch (error) {
+      console.log(error);
+      return response.status(400).json({ status: "Sorry, error occured" });
+    }
+  }
 }

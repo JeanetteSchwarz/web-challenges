@@ -9,7 +9,6 @@ const sightsSchema = new Schema({
   mapURL: { type: String, required: true },
 });
 
-const Sights =
-  mongoose.models.Product || mongoose.model("Sights", sightsSchema);
+const Sights = mongoose.models.Sights || mongoose.model("Sights", sightsSchema);
 
 export default Sights;
