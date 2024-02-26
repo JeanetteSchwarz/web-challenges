@@ -1,6 +1,7 @@
+import Sights from "@/db/models/sights.js";
 import { places } from "../../../../lib/db.js";
 
-export default function handler(request, response) {
+export default async function handler(request, response) {
   const { id } = request.query;
 
   if (!id) {
@@ -14,4 +15,10 @@ export default function handler(request, response) {
   }
 
   response.status(200).json(place);
+
+  if (request.method === "PATCH") {
+    const updateSight = request.body;
+    await Sights.findByIdAndUpdate(id, updateSight);
+    response.status(200).json({ status: "Sight updated!" });
+  }
 }
